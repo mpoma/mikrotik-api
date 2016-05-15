@@ -128,7 +128,7 @@ class Queues {
      * @return type array
      * 
      */
-    public function detail_address($id) {
+    public function detail_queue($id) {
         $sentence = new SentenceUtil();
         $sentence->fromCommand("/queue/simple/print");
         $sentence->where(".id", "=", $id);
