@@ -2,16 +2,14 @@
 require '../vendor/autoload.php';
 use MikrotikAPI\Talker\Talker;
 use \MikrotikAPI\Entity\Auth;
-use MikrotikAPI\Commands\IP\Address;
-use MikrotikAPI\Commands\IP\Firewall\FirewallFilter;
+use MikrotikAPI\Commands\Queues\Queues;
+
 $auth = new Auth();
 $auth->setHost("192.168.233.2");
-$auth->setUsername("simbmad");
-$auth->setPassword("antena123sol");
+$auth->setUsername("user");
+$auth->setPassword("password");
 $auth->setDebug(true);
 $talker = new Talker($auth);
-//$filter = new FirewallFilter($talker);
-//$a = $filter->getAll();
-$ipaddr = new Address($talker);
-$listIP = $ipaddr->getAll();
+$ipaddr = new Queues($talker);
+$listIP = $ipaddr->getTarget("192.168.233.51");
 MikrotikAPI\Util\DebugDumper::dump($listIP);
