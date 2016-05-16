@@ -18,7 +18,7 @@ use MikrotikAPI\Core\Connector,
  */
 class TalkerSender {
 
-    private $debug = FALSE;
+    private $debug = TRUE;
     private $con;
 
     public function __construct(Connector $con) {

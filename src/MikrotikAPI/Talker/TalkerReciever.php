@@ -23,7 +23,7 @@ class TalkerReciever {
     private $trap = FALSE;
     private $done = FALSE;
     private $re = FALSE;
-    private $debug = FALSE;
+    private $debug = TRUE;
 
     public function __construct(Connector $con) {
         $this->con = $con;
