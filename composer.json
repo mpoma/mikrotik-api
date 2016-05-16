@@ -1,7 +1,7 @@
 {
     "name": "mpoma/mikrotik-api",
     "description": "Mikrotik API PHP Library for working with RouterOS API Fork from Lalu Erfandi Maula Yusnu",
-    "version": "0.9.1",
+    "version": "0.9.2",
     "type": "library",
     "time": "2016-05-13",
     "keywords": ["API", "Mikrotik","RouterOS"],
@@ -14,7 +14,8 @@
     ],
     "autoload": {
         "psr-0": {
-            "MikrotikAPI": "src/"
+            "MikrotikAPI": "src/",
+            "MikrotikAPITest": "test/"
         }
     },
     "require": {

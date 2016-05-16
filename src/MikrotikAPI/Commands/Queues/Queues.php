@@ -69,7 +69,7 @@ class Queues {
     public function getTarget($target) {
         $sentence = new SentenceUtil();
         $sentence->fromCommand("/queue/simple/getall");
-        $sentence->where("target", "=", $target);
+        $sentence->where("target", "=", $target."/32");
         $this->talker->send($sentence);
         $rs = $this->talker->getResult();
         $i = 0;

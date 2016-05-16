@@ -6,5 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'MikrotikAPITest' => array($baseDir . '/test'),
     'MikrotikAPI' => array($baseDir . '/src'),
 );
