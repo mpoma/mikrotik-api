@@ -9,10 +9,6 @@ class ComposerStaticInit6e58d18ab647c55b3f15c6772ec323c7
     public static $prefixesPsr0 = array (
         'M' => 
         array (
-            'MikrotikAPITest' => 
-            array (
-                0 => __DIR__ . '/../..' . '/test',
-            ),
             'MikrotikAPI' => 
             array (
                 0 => __DIR__ . '/../..' . '/src',
