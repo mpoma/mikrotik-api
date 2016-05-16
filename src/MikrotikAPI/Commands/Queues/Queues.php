@@ -8,8 +8,8 @@ use MikrotikAPI\Talker\Talker,
 /**
  * Description of Queues
  *
- * @author      Marcelo Poma
- * @copyright   Copyright (c) 2016, Marcelo Poma.
+ * @author      Lalu Erfandi Maula Yusnu nunenuh@gmail.com <http://vthink.web.id>
+ * @copyright   Copyright (c) 2011, Virtual Think Team.
  * @license     http://opensource.org/licenses/gpl-license.php GNU Public License
  * @category	Libraries
  */
@@ -26,9 +26,10 @@ class Queues {
     }
 
     /**
-     * This method is used to add the simple queue
-     * @param type $address string
-     * @param type $interface string
+     * This method is used to add the Queues
+     * @param type $target string
+     * @param type $rate string
+     * @param type $name string
      * @param type $comment string
      * @return type array
      */
@@ -43,7 +44,7 @@ class Queues {
     }
 
     /**
-     * This method is used to display all simple queue
+     * This method is used to display all Queues
      * @return type array
      * 
      */
@@ -56,34 +57,31 @@ class Queues {
         if ($i < $rs->size()) {
             return $rs->getResultArray();
         } else {
-            return "No simple queue To Set, Please Your Add simple queue";
+            return "No Queue To Set, Please Your Add Queue";
         }
     }
 
-
     /**
-     * This method is used to display one target simple queue
+     * This method is used to display only one Queues
      * @return type array
      * 
      */
-    public function getTarget($target) {
+    public function getTarget($param) {
         $sentence = new SentenceUtil();
         $sentence->fromCommand("/queue/simple/getall");
-        $sentence->where("target", "=", $target."/32");
+        $sentence->where("target", "=",$param."/32" );        
         $this->talker->send($sentence);
         $rs = $this->talker->getResult();
         $i = 0;
         if ($i < $rs->size()) {
             return $rs->getResultArray();
         } else {
-            return null;
+            return false;
         }
     }
 
-
-
     /**
-     * This method is used to activate simple queue by id
+     * This method is used to activate the Queues by id
      * @param type $id is not an array
      * @return type array
      * 
@@ -98,7 +96,7 @@ class Queues {
     }
 
     /**
-     * This method is used to disable simple queue by id
+     * This method is used to disable Queues by id
      * @param type $id string 
      * @return type array
      * 
@@ -113,7 +111,7 @@ class Queues {
     }
 
     /**
-     * This method is used to remove the simple queue by id
+     * This method is used to remove the Queues by id
      * @param type $id is not an array
      * @return type array
      * 
@@ -144,13 +142,13 @@ class Queues {
     }
 
     /**
-     * This method is used to display one simple queue 
+     * This method is used to display one Queues 
      * in detail based on the id
      * @param type $id not string
      * @return type array
      * 
      */
-    public function detail_address($id) {
+    public function detail_queue($id) {
         $sentence = new SentenceUtil();
         $sentence->fromCommand("/queue/simple/print");
         $sentence->where(".id", "=", $id);
@@ -160,8 +158,10 @@ class Queues {
         if ($i < $rs->size()) {
             return $rs->getResultArray();
         } else {
-            return "No simple queue With This id = " . $id;
+            return "No Queue With This id = " . $id;
         }
     }
 
 }
+
+
